@@ -154,9 +154,7 @@ class TelcoFeatureEngineer(BaseEstimator, TransformerMixin):
         X["IsLongTermCustomer"] = (X["tenure"] >= 48).astype(int)
 
         X["num_services_group"] = pd.cut(
-            X["num_services"],
-            bins=[-1, 2, 4, np.inf],
-            labels=["0-2", "3-4", "5+"],
+            X["num_services"], bins=[-1, 2, 4, np.inf], labels=["0-2", "3-4", "5+"]
         )
 
         X["MonthToMonth_HighCharge"] = (
@@ -194,9 +192,7 @@ def build_pipeline():
             (
                 "model",
                 LogisticRegression(
-                    class_weight="balanced",
-                    random_state=SEED,
-                    max_iter=1500,
+                    class_weight="balanced", random_state=SEED, max_iter=1500
                 ),
             ),
         ]
@@ -212,11 +208,7 @@ def split_data(df):
     y = df["Churn"]
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=TEST_SIZE,
-        stratify=y,
-        random_state=SPLIT_SEED,
+        X, y, test_size=TEST_SIZE, stratify=y, random_state=SPLIT_SEED
     )
 
     y_train = y_train.map({"Yes": 1, "No": 0})

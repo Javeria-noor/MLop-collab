@@ -1,0 +1,4 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = https://dagshub.com/noorjaveria182/MLop-collab.dvc
