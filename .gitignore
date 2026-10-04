@@ -1,0 +1,20 @@
+# data and models (DVC handles these later)
+data/*
+!data/.gitkeep
+models/*
+!models/.gitkeep
+
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# experiments and checkpoints
+mlruns/
+*.ckpt
+*.pkl
+*.joblib
