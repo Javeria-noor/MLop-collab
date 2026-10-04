@@ -1,5 +1,6 @@
 # data and models (DVC handles these later)
-data/*
+data/raw/*
+!data/raw/*.dvc
 !data/.gitkeep
 models/*
 !models/.gitkeep
